@@ -3,13 +3,13 @@ package projectCode20280;
 import java.util.Arrays;
 
 public class ArrayStack<E> implements Stack<E> {
-    public static final int CAPACITY = 1000;//default array capacity
+    private static final int CAPACITY = 1000;//default array capacity
     private E[] data;//generic array for storage
     private int t = -1;//stack is empty and index = size -1;
-    public ArrayStack(){
+    private ArrayStack(){
         this(CAPACITY);
     }
-    public ArrayStack(int capacity){
+    private ArrayStack(int capacity){
         data = (E[]) new Object[capacity];
     }
 
