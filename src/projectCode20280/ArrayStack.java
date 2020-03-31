@@ -9,7 +9,7 @@ public class ArrayStack<E> implements Stack<E> {
     private ArrayStack(){
         this(CAPACITY);
     }
-    private ArrayStack(int capacity){
+    ArrayStack(int capacity){
         data = (E[]) new Object[capacity];
     }
 
