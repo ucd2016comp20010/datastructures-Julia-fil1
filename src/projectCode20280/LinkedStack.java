@@ -2,7 +2,7 @@ package projectCode20280;
 
 public class LinkedStack<E> implements Stack<E> {
 private SinglyLinkedList<E> list = new SinglyLinkedList<>();
-private LinkedStack(){}
+LinkedStack(){}
     public static void main(String[] args) {
         LinkedStack<Integer> ls = new LinkedStack<>();
         ls.push(1);
