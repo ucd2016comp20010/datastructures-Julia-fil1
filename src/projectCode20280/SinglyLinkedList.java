@@ -29,9 +29,15 @@ public class SinglyLinkedList<E> implements List<E> {
 			this.next = next;
 		}
 
-		public String toString() {
-			return this.element.toString();
+
+	}
+	public String toString() {
+		String tempString = "";
+
+		for(Iterator<E> it = iterator(); it.hasNext();){
+			tempString += "[" + it.next() + "]";
 		}
+		return tempString;
 	}
 
 	private Node<E> head;
@@ -93,7 +99,8 @@ public class SinglyLinkedList<E> implements List<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return new ListIterator(); // create a new instance of the inner class
+
+	    return new ListIterator(); // create a new instance of the inner class
 	}
 
 	private class ListIterator implements Iterator<E> {
@@ -105,7 +112,7 @@ public class SinglyLinkedList<E> implements List<E> {
 		}
 
 		public boolean hasNext() {
-			return (iterator.getNext() != null);
+			return iterator.getNext() != null;
 		}
 
 		public E next() {
@@ -114,9 +121,9 @@ public class SinglyLinkedList<E> implements List<E> {
 			return data;
 		}
 
-		public void remove() {
-			// NOT IMPLEMENTED
-		}
+//		public void remove() {
+//			// NOT IMPLEMENTED
+//		}
 
 	}
 
@@ -186,7 +193,7 @@ public class SinglyLinkedList<E> implements List<E> {
 		for (String s : alphabet) {
 			sll.addFirst(s);
 			sll.addLast(s);
-		}
+	}
 		System.out.println(sll.toString());
 
 		sll.removeFirst();
