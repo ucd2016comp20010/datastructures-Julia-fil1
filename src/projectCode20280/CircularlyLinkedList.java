@@ -47,7 +47,7 @@ public class CircularlyLinkedList<E> implements List<E> {
 	private Node<E> tail = null;
 	private int size = 0;
 
-	private CircularlyLinkedList(){}
+	CircularlyLinkedList(){}
 
 	@Override
 	public int size() {
@@ -149,7 +149,7 @@ public class CircularlyLinkedList<E> implements List<E> {
 		tail = tail.next; // new node becomes the tail
 	}
 
-	private void rotate() {
+	public void rotate() {
 		if(tail != null) { // If list is not empty
 			tail = tail.next; // the old head becomes the new tail
 		}
