@@ -3,7 +3,7 @@ package projectCode20280;
 /**
  * Concrete implementation of a binary tree using a node-based, linked structure.
  */
-public class LinkedBinaryTree<E extends Comparable<E>> extends AbstractBinaryTree<E> {
+public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
 
 
     /** Nested static class for a binary tree node. */
@@ -175,20 +175,27 @@ public class LinkedBinaryTree<E extends Comparable<E>> extends AbstractBinaryTre
         }
     }
 
+
+    private final DefaultComparator<E> comparator = new DefaultComparator<>();
+
+    public int compareTo(E first, E second){
+        return comparator.compare(first, second);
+    }
+
     //recursively add Nodes to binary tree in proper position
     private Node<E> addRecursive(Node<E> p, E e) {
         //Node<E> node = validate(p);
         if (p != null) {
             if (e.equals(p.getElement())) {
                 return p;
-            } else if (e.compareTo(p.getElement()) < 0) {
+            } else if (compareTo(e, p.getElement()) < 0) {
                 if (p.getLeft() == null) {
                     //p = (Node<E>) addLeft(p, e);
                     p.setLeft(createNode(e, p, null, null));
                 } else {
                     p.setLeft(addRecursive(p.getLeft(), e));
                 }
-            } else if (e.compareTo(p.getElement()) > 0) {
+            } else if (compareTo(e, p.getElement()) > 0) {
                 if (p.getRight() == null) {
                     //p = (Node<E>) addRight(p, e);
                     p.setRight(createNode(e, p, null, null));
@@ -302,19 +309,23 @@ public class LinkedBinaryTree<E extends Comparable<E>> extends AbstractBinaryTre
      */
     public E remove(Position<E> p) throws IllegalArgumentException {
         Node<E> node = validate(p);
+        //Node<E> n = (Node<E>) p; //extracting a node from a position by casting it
         if(numChildren(p) == 2) {
-            throw new IllegalArgumentException("p has 2 children");
+            throw new IllegalArgumentException("You can't remove a node which has 2 children");
         }
 
+        //we need to know whether we're removing left or right child
+        //which of left or right of the parent is a null pointer
+        //if the left pointer is not null then we should make the child equal to the left otherwise right
         Node<E> child = (node.getLeft() != null ? node.getLeft() : node.getRight());
-        if(child != null) {
+        if(child != null) {//the child could still be a null pointer
             child.setParent(node.getParent());//child's grandparent becomes its parent
         }
-        if(node == root) {
+        if(node == root) {//if we're removing the root
             root = child;//child becomes root
         }
-        else {
-            Node<E> parent = node.getParent();
+        else {//if it's not the root
+            Node<E> parent = node.getParent();//we get the parent of the node
             if (node == parent.getLeft()) {
                 parent.setLeft(child);
             } else {
@@ -322,7 +333,7 @@ public class LinkedBinaryTree<E extends Comparable<E>> extends AbstractBinaryTre
             }
         }
             size--;
-            E temp = node.getElement();
+            E temp = node.getElement();//since the method returns the element that is removed we need to store it
             node.setElement(null);
             node.setLeft(null);
             node.setRight(null);
@@ -356,6 +367,7 @@ public class LinkedBinaryTree<E extends Comparable<E>> extends AbstractBinaryTre
         return p;//otherwise we return the node that we're trying to insert
 
     }
+
     public static void main(String [] args) {
         LinkedBinaryTree<Integer> bt = new LinkedBinaryTree<Integer>();
 
