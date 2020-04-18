@@ -23,7 +23,7 @@ public class ArrayQueue<E> implements Queue<E> {
         arrayQueue.enqueue(1);
         arrayQueue.enqueue(2);
         arrayQueue.enqueue(3);
-        arrayQueue.enqueue(4);
+        arrayQueue.enqueue(-4);
         System.out.println(arrayQueue);
 
         System.out.println("First: " + arrayQueue.first());
