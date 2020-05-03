@@ -136,19 +136,6 @@ public class AVLTreeMap<K, V> extends TreeMap<K, V> {
 	}
 	*/
 
-//    @Override
-//    public String toString() {
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("[");
-//        for(Entry<K, V> i : tree) {
-//            sb.append(i).append(", ");
-//        }
-//        sb.deleteCharAt(sb.length()-1);
-//        sb.deleteCharAt(sb.length()-1);
-//        sb.append("]");
-//        return sb.toString();
-//    }
-
     public static void main(String [] args) {
         AVLTreeMap<Integer, Integer> avl = new AVLTreeMap<>();
         Integer[] arr = new Integer[] { 44, 17, 88, 8, 32, 65, 97, 28, 54, 82, 93, 21, 29, 76, 80 };
