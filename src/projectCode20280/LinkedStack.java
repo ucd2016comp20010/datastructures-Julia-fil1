@@ -46,11 +46,24 @@ LinkedStack(){}
         return list.removeFirst();
     }
 
+//    public String toString() {
+//        String output = new String();
+//        for(int i = 0; i < list.size(); i++) {
+//            output += list.get(i) + ", ";
+//        }
+//        return output;
+//    }
+
+    @Override
     public String toString() {
-        String output = new String();
-        for(int i = 0; i < list.size(); i++) {
-            output += list.get(i) + ", ";
+        StringBuilder ls = new StringBuilder();
+        ls.append('[');
+        for (E i: list){
+            ls.append(i + ", ");
         }
-        return output;
+        ls.deleteCharAt(ls.length() - 1);
+        ls.deleteCharAt(ls.length() - 1);
+        ls.append("]");
+        return ls.toString();
     }
 }

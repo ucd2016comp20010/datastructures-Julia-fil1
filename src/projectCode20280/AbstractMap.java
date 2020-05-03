@@ -60,8 +60,8 @@ public abstract class AbstractMap<K, V> implements Map<K, V> {
 
         /** Returns string representation (for debugging only) */
         public String toString() {
-            //return "<" + k + ", " + v + ">";
-            return "" + k;
+            return "<" + k + ", " + v + ">";
+            //return "" + k;
         }
 
     } // ----------- end of nested MapEntry class -----------
@@ -87,7 +87,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V> {
     } // ----------- end of nested KeyIterator class -----------
 
     // ---------------- nested KeyIterable class ----------------
-    private class KeyIterable implements Iterable<K> {
+    class KeyIterable implements Iterable<K> {
         public Iterator<K> iterator() {
             return new KeyIterator();
         }

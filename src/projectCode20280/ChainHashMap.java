@@ -85,7 +85,7 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
             return null;
         int oldSize = bucket.size();
         V answer = bucket.remove(k);
-        n -= (bucket.size() - oldSize); //size may have decreased
+        n -= (oldSize - bucket.size()); //size may have decreased
         return answer;
     }
 

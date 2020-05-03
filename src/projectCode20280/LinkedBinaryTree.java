@@ -341,16 +341,33 @@ public class LinkedBinaryTree<E> extends AbstractBinaryTree<E> {
             return temp;
     }
 
+//    public String toString() {
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("[");
+//        //for(Position<E> p : positions()) {
+//        for (int i = 0; i < positions().toString().length(); i++){
+////            sb.append(p.getElement()).append(", ");
+//            sb.append(positions());
+//
+//        }
+//        sb.append("]");
+//        return sb.toString();
+//    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         for(Position<E> p : positions()) {
-            sb.append(p.getElement());
-            sb.append(", ");
+            sb.append(p.getElement()).append(", ");
         }
+        sb.deleteCharAt(sb.length()-1);
+        sb.deleteCharAt(sb.length()-1);
         sb.append("]");
         return sb.toString();
     }
+
+
 
     public void createLevelOrder(E[] arr){
         root = createLevelOrderHelper(arr, root, 0); //the root is at level 0

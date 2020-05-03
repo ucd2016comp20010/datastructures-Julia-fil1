@@ -48,9 +48,15 @@ public class LinkedQueue<E> implements Queue<E> {
 
     @Override
     public String toString() {
-        return "LinkedQueue{" +
-                "list=" + list +
-                '}';
+        StringBuilder lq = new StringBuilder();
+        lq.append('[');
+        for (E i: list){
+            lq.append(i + ", ");
+        }
+        lq.deleteCharAt(lq.length() - 1);
+        lq.deleteCharAt(lq.length() - 1);
+        lq.append("]");
+        return lq.toString();
     }
 
 }
