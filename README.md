@@ -16,7 +16,6 @@ All of the programs were written in Java 13
 
 This repository includes the following Practicals
 
-## Contents
 | Content
 |--------------------------------------------------
 | Lists: Singly, Doubly, Circularly
